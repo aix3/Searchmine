@@ -2,7 +2,7 @@
     "name": "Searchmine",
     "version": "1.0.0",
     "manifest_version": 2,
-    "description": "Redmine issues target and member searcher plugin.",
+    "description": "A Chrome plugin for Redmine issues target and member searcher",
     "permissions": [
         "http://*/*",
         "https://*/*"
