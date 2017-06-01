@@ -1,0 +1,35 @@
+{
+    "name": "Searchmine",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "description": "Redmine issues target and member searcher plugin.",
+    "permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "browser_action": {
+        "default_icon": "image/icon.png",
+        "default_title": "Searchmine"
+    },
+    "icons": {
+        "16": "image/icon.png",
+        "48": "image/icon.png",
+        "128": "image/icon.png"
+    },
+    "content_scripts": [{
+        "matches": [
+            "http://devops.lab.everhomes.com/issues/*",
+            "http://devops.lab.everhomes.com/projects/*/issues/new",
+            "http://devops.zuolin.com/issues/*",
+            "http://devops.zuolin.com/projects/*/issues/new",
+            "https://devops.zuolin.com/issues/*",
+            "https://devops.zuolin.com/projects/*/issues/new"
+        ],
+        "js": [
+            "js/jquery-3.2.1.min.js",
+            "js/select2.min.js",
+            "js/main.js"
+        ],
+        "run_at": "document_idle"
+    }]
+}
