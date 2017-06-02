@@ -1,34 +1,39 @@
 {
     "name": "Searchmine",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "manifest_version": 2,
     "description": "A Chrome plugin for Redmine issues target and member searcher",
-    "permissions": [
-        "http://*/*",
-        "https://*/*"
-    ],
     "browser_action": {
-        "default_icon": "image/icon.png",
+        "default_icon": "icon.png",
         "default_title": "Searchmine"
     },
     "icons": {
-        "16": "image/icon.png",
-        "48": "image/icon.png",
-        "128": "image/icon.png"
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "permissions": [
+        "tabs",
+        "webRequest",
+        "*://*/issues/*",
+        "*://*/projects/*/issues/new"
+    ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
     },
     "content_scripts": [{
         "matches": [
-            "http://devops.lab.everhomes.com/issues/*",
-            "http://devops.lab.everhomes.com/projects/*/issues/new",
-            "http://devops.zuolin.com/issues/*",
-            "http://devops.zuolin.com/projects/*/issues/new",
-            "https://devops.zuolin.com/issues/*",
-            "https://devops.zuolin.com/projects/*/issues/new"
+            "*://*/issues/*",
+            "*://*/projects/*/issues/new"
         ],
         "js": [
-            "js/jquery-3.2.1.min.js",
-            "js/select2.min.js",
-            "js/main.js"
+            "lib/jquery-3.2.1.min.js",
+            "lib/select2.min.js",
+            "main.js"
+        ],
+        "css": [
+            "lib/select2.min.css"
         ],
         "run_at": "document_idle"
     }]
